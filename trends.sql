@@ -36,7 +36,7 @@ SELECT track_name, streams, spotify_playlists, artist_name
 FROM music
 WHERE streams IS NOT NULL AND spotify_playlists IS NOT NULL
 ORDER BY spotify_playlists DESC;
--- Overall seems that way- maybe attach graph
+-- Overall seems that way- see graph
 
 -- 7) Does having more artists contributing lead to higher energy?
 SELECT artist_count, energy, track_name, artist_name
@@ -73,7 +73,7 @@ WHERE valence IS NOT NULL
 	AND danceability IS NOT NULL
 	AND energy IS NOT NULL
 ORDER BY valence ASC;
--- Very low correlation- slight upward trend for both
+-- Very low correlation- slight upward trend for both (see graph)
 
 -- 12) Are more popular songs newer?
 UPDATE music
@@ -85,8 +85,7 @@ SELECT sumcharts, release_year, track_name, artist_name
 FROM music
 ORDER BY sumcharts ASC, release_year DESC;
 -- The most popular songs (on both the Spotify and
--- Apple Music charts) are mainly from 2022, and almost all of them are from
--- 2019 or earlier (the past 5 years)
+-- Apple Music charts) are mainly from 2022, and almost all of them are from 2019 or earlier (the past 5 years)
 
 UPDATE music
 SET sumcharts2 = (spotify_charts + apple_charts + deezer_charts +
@@ -99,9 +98,8 @@ WHERE spotify_charts IS NOT NULL
 SELECT sumcharts2, release_year, track_name, artist_name
 FROM music
 ORDER BY release_year DESC;
--- The most popular songs (that reached number 1 on Spotify, Apple Music,
--- Shazam, and Deezer) are mainly from 2022, and almost all of them are from
--- 2021 or earlier (the past 3 years)
+-- The most popular songs (that reached number 1 on Spotify, Apple Music, Shazam, and Deezer) are mainly from 2022,
+-- and almost all of them are from 2021 or earlier (the past 3 years)
 
 -- 13) Which songs (and how many) reached number one on all four platforms?
 SELECT COUNT(sumcharts2) AS all_4_charts_number1
@@ -124,13 +122,10 @@ SELECT artist_name, SUM(sumplaylists) AS total_sum
 FROM music
 GROUP BY artist_name
 ORDER BY total_sum DESC;
--- Get Lucky - Radio Edit, Mr. Brightside, Wake Me Up - Radio Edit,
--- and Smells Like Teen Spirit - Remastered 2021 are the top 4
--- tracks on the most Spotify and Apple Music playlists as well as the only
--- tracks on more than 50,000 playlists.
+-- Get Lucky - Radio Edit, Mr. Brightside, Wake Me Up - Radio Edit, and Smells Like Teen Spirit - Remastered 2021 are the
+-- top 4 tracks on the most Spotify and Apple Music playlists as well as the only tracks on more than 50,000 playlists.
 
--- The Weeknd, Ed Sheeran, and Taylor Swift are the artists on the most
--- playlists (each on over 125,000).
+-- The Weeknd, Ed Sheeran, and Taylor Swift are the artists on the most playlists (each on over 125,000).
 
 -- 15) Do certain artists have more speechiness?
 SELECT artist_name, SUM(speechiness) AS sum_speechiness
@@ -140,7 +135,7 @@ WHERE speechiness IS NOT NULL
 GROUP BY artist_name
 ORDER BY sumspeechiness DESC
 LIMIT 10;
--- Put in table
+-- See table
 
 -- 16) Are more songs major or minor?
 SELECT SUM(CASE WHEN mvm LIKE 'Majo%'  THEN 1 ELSE 0 END) AS Major,
@@ -154,8 +149,7 @@ FROM music
 WHERE track_name IS NOT NULL
 GROUP BY released_day
 ORDER BY number_of_songs_released DESC; 
--- Most songs were released on the 1st of the month, more than double the 
--- amount released on the next highest day, the 21st
+-- Most songs were released on the 1st of the month, more than double the amount released on the next highest day, the 21st
 
 -- 18) Is there a pattern in BPMs of the most popular songs?
 SELECT sumcharts2, bpm, track_name, artist_name
@@ -179,8 +173,7 @@ SELECT quarter_released, COUNT(DISTINCT(artist_name, track_name)) AS song_count
 FROM quarter_released
 GROUP BY quarter_released
 ORDER BY song_count DESC;
-/*-- Quarter 1 and Quarter 2 (the top two) had a very similar number of songs
-released. */
+-- Quarter 1 and Quarter 2 (the top two) had a very similar number of songs released.
 
 -- 19b) Month released
 WITH month_released AS (
@@ -192,8 +185,8 @@ WITH month_released AS (
 SELECT *
 FROM month_released
 ORDER BY song_count DESC;
--- January and May had the highest number of songs released which is evident
--- in the higher number of songs released during Q1 and Q2.
+-- January and May had the highest number of songs released which is evident in the higher number of songs released
+-- during Q1 and Q2.
 
 -- 20) Which collaborations between artists have been most successful
 --     in terms of chart performance?
@@ -201,7 +194,7 @@ SELECT track_name, artist_name, sumcharts2, artist_count
 FROM music
 WHERE artist_count > 1
 ORDER BY sumcharts2 ASC;
--- Insert table
+-- See table
 
 -- 21) Which songs went #1 on Spotify and Apple?
 --CREATE VIEW sc1_view AS
@@ -212,3 +205,4 @@ SELECT sc1_view.spotify_charts, sc1_view.track_name, sc1_view.artist_name, music
 FROM sc1_view
 INNER JOIN music
 ON sc1_view.spotify_charts = music.apple_charts;
+-- See table
