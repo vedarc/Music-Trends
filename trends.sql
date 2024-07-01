@@ -172,22 +172,22 @@ SELECT release_month, artist_name, track_name, CASE
 FROM music
 )
 SELECT quarter_released, COUNT(DISTINCT(artist_name, track_name))
-	AS number_songs_released
+	AS number_of_songs_released
 FROM quarter_released
 GROUP BY quarter_released
-ORDER BY number_songs_released DESC;
+ORDER BY number_of_songs_released DESC;
 -- Quarter 1 and Quarter 2 (the top two) had a very similar number of songs released.
 
 -- 19b) Month released
 WITH month_released AS (
-	SELECT release_month, COUNT(DISTINCT(artist_name, track_name)) AS song_count
+	SELECT release_month, COUNT(DISTINCT(artist_name, track_name)) AS number_of_songs_released
 	FROM music
 	GROUP BY release_month
 	ORDER BY release_month DESC
 )
 SELECT *
 FROM month_released
-ORDER BY song_count DESC;
+ORDER BY number_of_songs_released DESC;
 -- January and May had the highest number of songs released which is evident in the higher number of songs released
 -- during Q1 and Q2.
 
