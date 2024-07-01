@@ -4,6 +4,8 @@ For this project I used PostgreSQL to analyze trends and draw insights from a Ka
 
 To view the code and direct results, use the trends.sql file.
 
+To view the dataset analyzed, use the spotify2.xlsx file.
+
 ## Key Insights
 *In this section I will highlight the main insights derived from my analysis of 2023's hottest Spotify hits.*
 - Top 3 highest streamed songs on Spotify: Blinding Lights by The Weeknd, Shape of You by Ed Sheeran, and Someone You Loved by Lewis Capaldi.
