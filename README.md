@@ -42,6 +42,7 @@ To view the code and direct results, use the trends.sql file.
 **6) Do songs on more playlists have higher streams on Spotify?**
 
     Overall, yes, songs on more playlists have higher streams on Spotify.
+![streams visual](https://github.com/vedarc/Music-Trends/assets/162649750/db7555b7-6de9-42e4-8806-935d6d572813)
 
 
 **7) Does having more artists contributing lead to higher energy?**
@@ -67,7 +68,11 @@ To view the code and direct results, use the trends.sql file.
 **11) Does the danceability/energy of a song correlate to positivity?**
 
     There seems to be a very low correlation, as there is a slight upward trend for both danceability and energy as positivity
-    increases.
+    increases. (See graphs below, both with Positivity on the X-axis and variable on the Y-axis.)
+    
+  ![dv](https://github.com/vedarc/Music-Trends/assets/162649750/ea0a1c76-ba8b-4abe-bc8b-c4477e0b5bd8)
+  ![de](https://github.com/vedarc/Music-Trends/assets/162649750/392dc3fb-c852-45e5-a6e9-f9956093a028)
+
 
 
 **12) Are more popular songs newer?**
