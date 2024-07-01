@@ -4,6 +4,7 @@ FROM music
 WHERE streams IS NOT NULL
 ORDER BY streams DESC
 LIMIT 10;
+-- See table
 
 -- 2) Do certain artists have a pattern of BPM? (Taylor Swift?)
 SELECT track_name, bpm
@@ -18,6 +19,7 @@ FROM music
 WHERE bpm IS NOT NULL
 ORDER BY bpm DESC
 LIMIT 10;
+-- See table
 
 -- 4) What is the average number of streams per song?
 SELECT ROUND(AVG(streams), 2) AS AvgStreamsPerSong
