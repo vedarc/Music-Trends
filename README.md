@@ -121,10 +121,11 @@ To view the code and direct results, use the trends.sql file.
 **19) Are song releases seasonal?**
 
     Quarter released: Quarter 1 and Quarter 2 (the top two) had a very similar number of songs released.
-![qview](https://github.com/vedarc/Music-Trends/assets/162649750/3b8a162d-b241-4aec-a57b-08d1045e996c)
+![qview](https://github.com/vedarc/Music-Trends/assets/162649750/bb891adb-68cb-4298-ba26-2c1a01c2bd09)
 
     Month released: January and May had the highest number of songs released which is evident in the higher number of songs
     released during Q1 and Q2.
+![mview](https://github.com/vedarc/Music-Trends/assets/162649750/64fc2a83-fa48-4a54-b275-b477b97acbd9)
 
 
 
