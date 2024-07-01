@@ -171,10 +171,11 @@ SELECT release_month, artist_name, track_name, CASE
 	END AS quarter_released
 FROM music
 )
-SELECT quarter_released, COUNT(DISTINCT(artist_name, track_name)) AS song_count
+SELECT quarter_released, COUNT(DISTINCT(artist_name, track_name))
+	AS number_songs_released
 FROM quarter_released
 GROUP BY quarter_released
-ORDER BY song_count DESC;
+ORDER BY number_songs_released DESC;
 -- Quarter 1 and Quarter 2 (the top two) had a very similar number of songs released.
 
 -- 19b) Month released
